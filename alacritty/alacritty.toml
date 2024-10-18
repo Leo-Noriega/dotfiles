@@ -1,0 +1,8 @@
+live_config_reload = true
+
+[font]
+size = 16
+
+[window]
+decorations = "buttonless"
+opacity = 0.9
