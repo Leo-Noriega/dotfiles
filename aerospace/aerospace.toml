@@ -76,3 +76,16 @@ run= 'layout floating'
 [[on-window-detected]]
 if.app-id= 'org.alacritty'
 run= 'layout floating'
+
+[[on-window-detected]]
+if.app-id= 'com.apple.iCal'
+run= 'layout floating'
+
+[[on-window-detected]]
+if.app-id= 'com.macpaw.CleanMyMac4'
+run= 'layout floating'
+
+[[on-window-detected]]
+if.app-id= 'com.apple.Photos'
+run= 'layout floating'
+
