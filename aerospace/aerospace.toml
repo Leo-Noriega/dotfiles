@@ -7,7 +7,6 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # Managing apps
 cmd-shift-q = 'close'
 cmd-alt-enter = 'exec-and-forget open -n /Applications/Alacritty.app/'
-cmd-alt-e = 'exec-and-forget emacsclient -c'
 
 # i3 wraps focus by default
 alt-h =         'focus --boundaries-action wrap-around-the-workspace left'
@@ -87,5 +86,9 @@ run= 'layout floating'
 
 [[on-window-detected]]
 if.app-id= 'com.apple.Photos'
+run= 'layout floating'
+
+[[on-window-detected]]
+if.app-id= 'com.vmware.fusion'
 run= 'layout floating'
 
