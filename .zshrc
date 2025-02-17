@@ -21,6 +21,7 @@ alias ll="ls -lah"
 alias et="emacsclient -t"
 alias pp="php bin/console"
 alias n=$EDITOR
+alias zl="zellij"
 
 # ==== FUNCTIONS ====
 autoload -Uz compinit
