@@ -6,7 +6,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 [mode.main.binding]
 # Managing apps
 cmd-shift-q = 'close'
-cmd-alt-enter = 'exec-and-forget open -n /Applications/Alacritty.app/'
+cmd-alt-enter = 'exec-and-forget open -n /Applications/Ghostty.app/'
 
 # i3 wraps focus by default
 alt-h =         'focus --boundaries-action wrap-around-the-workspace left'
@@ -55,7 +55,7 @@ alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-0 = 'move-node-to-workspace 10'
 
-alt-shift-c = 'reload-config'
+alt-shift-r = 'reload-config'
 
 alt-r = 'mode resize'
 
@@ -73,7 +73,7 @@ if.app-id= 'com.apple.finder'
 run= 'layout floating'
 
 [[on-window-detected]]
-if.app-id= 'org.alacritty'
+if.app-id= 'com.mitchellh.ghostty'
 run= 'layout floating'
 
 [[on-window-detected]]
@@ -99,4 +99,13 @@ run= 'layout floating'
 [[on-window-detected]]
 if.app-id= 'net.whatsapp.WhatsApp'
 run= 'layout floating'
+
+[[on-window-detected]]
+if.app-id= 'com.usebruno.app'
+run= 'layout floating'
+
+[[on-window-detected]]
+if.app-id= 'com.apple.FontBook'
+run= 'layout floating'
+
 
