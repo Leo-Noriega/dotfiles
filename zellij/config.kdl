@@ -1,5 +1,7 @@
 default_mode "locked"
 default_layout "compact"
+theme "kanagawa"
+pane_frames false
 
 keybinds {
   locked clear-defaults=true {
