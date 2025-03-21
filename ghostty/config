@@ -1,0 +1,26 @@
+# WINDOWS
+window-theme = dark
+window-inherit-working-directory = true
+window-save-state = never
+window-padding-x = 8
+window-padding-y = 8
+window-padding-balance = true
+
+# BACKGROUND
+background = #000000
+background-opacity = 0.95
+
+# FONTS
+font-family = FiraCode Nerd Font Mono Reg
+font-size = 14
+
+# CURSOR
+cursor-color = #bea2ff
+
+# MACOS
+macos-option-as-alt = left
+macos-titlebar-style = hidden
+keybind = command+shift+backspace=toggle_fullscreen
+
+# THEME
+theme = kanagawa dragon
