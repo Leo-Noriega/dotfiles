@@ -7,6 +7,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # Managing apps
 cmd-shift-q = 'close'
 cmd-alt-enter = 'exec-and-forget open -n /Applications/Ghostty.app/'
+cmd-alt-g = 'exec-and-forget open -n  /Applications/Orion.app/'
 
 # i3 wraps focus by default
 alt-h =         'focus --boundaries-action wrap-around-the-workspace left'
