@@ -8,7 +8,7 @@ cc() {
         return 1
     fi
     cd "$dir" && gum style \
-        --foreground "#90A959" --border rounded --align center --bold --padding "0.1 0.1" \
+        --foreground "#658594" --border rounded --align center --bold --padding "0.1 0.1" \
         "Now in: $(pwd)"
 }
 
@@ -22,7 +22,7 @@ c() {
         return 1
     fi
     cd "$dir" && gum style \
-        --foreground "#90A959" --border rounded --align center --bold --padding "0.1 0.1" \
+        --foreground "#658594" --border rounded --align center --bold --padding "0.1 0.1" \
         "Now in: $(pwd)" }
 
 # fzf into a directory and open it (choose)
@@ -50,7 +50,7 @@ opd() {
             zip -r "$zip_name" "$dir" > /dev/null
             if [ $? -eq 0 ]; then
                 gum style \
-                    --foreground "#90A959" --border rounded --align center --bold --padding "0.1 0.1" \
+                    --foreground "#658594" --border rounded --align center --bold --padding "0.1 0.1" \
                     "Zipped: $zip_name"
             else
                 gum style \
@@ -87,7 +87,7 @@ opf() {
         copy)
             cat "$file" | pbcopy
             gum style \
-                --foreground "#90A959" --border rounded --align center --bold --padding "0.1 0.1" \
+                --foreground "#658594" --border rounded --align center --bold --padding "0.1 0.1" \
                 "Copied: $file"
             ;;
         *)
