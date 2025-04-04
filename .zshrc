@@ -12,6 +12,7 @@ export RPROMPT='%B%F{#c5c9c5}[%B%F{#c5c9c5}%t%f%b%B%F{#c5c9c5}]'
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export PATH="/opt/homebrew/opt/unzip/bin:$PATH"
+export PATH="/Users/noriega/Downloads/sonar-scanner-7.0.2.4839-macosx-aarch64/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 export MANPAGER="nvim +Man!"
 
