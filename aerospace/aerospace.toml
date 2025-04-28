@@ -109,4 +109,11 @@ run= 'layout floating'
 if.app-id= 'com.apple.FontBook'
 run= 'layout floating'
 
+[[on-window-detected]]
+if.app-id= 'net.java.openjdk.java'
+run= 'layout floating'
+
+[[on-window-detected]]
+if.app-id= 'com.termius-dmg.mac'
+run= 'layout floating'
 
