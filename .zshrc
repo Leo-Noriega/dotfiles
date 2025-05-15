@@ -13,8 +13,11 @@ export EDITOR="nvim"
 export TERMINAL="alacritty"
 export PATH="/opt/homebrew/opt/unzip/bin:$PATH"
 export PATH="/Users/noriega/Downloads/sonar-scanner-7.0.2.4839-macosx-aarch64/bin:$PATH"
+export PATH="/opt/homebrew/anaconda3/bin/:$PATH"
 export NVM_DIR="$HOME/.nvm"
 export MANPAGER="nvim +Man!"
+# export IDF_TOOLS_PATH="$HOME/.espressif"
+# export IDF_HOME="$HOME/Documents/ESP/esp-idf"
 
 # ==== ALIASES ====
 alias l="ls"
@@ -23,6 +26,7 @@ alias pp="php bin/console"
 alias n=$EDITOR
 alias nn="$EDITOR ."
 alias zl="zellij"
+# alias esp-init=". $IDF_HOME/install.sh && . $IDF_HOME/export.sh"
 
 # ==== FUNCTIONS ====
 for func_file in ~/.config/zshFunctions/*; do
@@ -36,3 +40,22 @@ done
 # ==== BREW ====
 autoload -Uz compinit
 compinit
+
+# ==== Starship ====
+eval "$(starship init zsh)"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
