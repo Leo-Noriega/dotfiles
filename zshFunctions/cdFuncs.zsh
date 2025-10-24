@@ -8,7 +8,7 @@ cc() {
         return 1
     fi
     cd "$dir" && gum style \
-        --foreground "#658594" --border rounded --align center --bold --padding "0.1 0.1" \
+        --foreground "#76946A" --border rounded --align center --bold --padding "0.1 0.1" \
         "Now in: $(pwd)"
 }
 
@@ -22,7 +22,7 @@ c() {
         return 1
     fi
     cd "$dir" && gum style \
-        --foreground "#658594" --border rounded --align center --bold --padding "0.1 0.1" \
+        --foreground "#76946A" --border rounded --align center --bold --padding "0.1 0.1" \
         "Now in: $(pwd)" }
 
 # fzf into a directory and open it (choose)
@@ -50,7 +50,7 @@ opd() {
             zip -r "$zip_name" "$dir" > /dev/null
             if [ $? -eq 0 ]; then
                 gum style \
-                    --foreground "#658594" --border rounded --align center --bold --padding "0.1 0.1" \
+                    --foreground "#76946A" --border rounded --align center --bold --padding "0.1 0.1" \
                     "Zipped: $zip_name"
             else
                 gum style \
@@ -87,7 +87,7 @@ opf() {
         copy)
             cat "$file" | pbcopy
             gum style \
-                --foreground "#658594" --border rounded --align center --bold --padding "0.1 0.1" \
+                --foreground "#76946A" --border rounded --align center --bold --padding "0.1 0.1" \
                 "Copied: $file"
             ;;
         *)
@@ -98,3 +98,53 @@ opf() {
             ;;
     esac
 }
+
+share() {
+    local dir="$HOME/Projects/Personal/docker/FileBrowser"
+    local port=1000
+    local started_orbstack=0
+
+    if [ ! -d "$dir" ]; then
+        gum style \
+            --foreground "#AF1B01" --border rounded --align center --bold --padding "0.1 0.1" \
+            "❌ Directory not found: $dir"
+        return 1
+    fi
+
+    # Iniciar OrbStack si no está activo
+    if ! pgrep -x "OrbStack" >/dev/null; then
+        gum style \
+            --foreground "#DCA561" --border rounded --align center --bold --padding "0.1 0.1" \
+            "Launching OrbStack in background..."
+        open -g -a OrbStack
+        sleep 5
+        started_orbstack=1
+    fi
+
+    cd "$dir"
+
+    gum style \
+        --foreground "#7E9CD8" --border rounded --align center --bold --padding "0.1 0.1" \
+        "Checking FileBrowser container..."
+    if ! docker compose ps | grep -q filebrowser; then
+        gum style \
+            --foreground "#DCA561" --border rounded --align center --bold --padding "0.1 0.1" \
+            "Starting FileBrowser..."
+        docker compose up -d
+        sleep 3
+    fi
+
+    gum style \
+        --foreground "#76946A" --border rounded --align center --bold --padding "0.1 0.1" \
+        "Opening TunnelMole on port $port..."
+
+    # Capturar Ctrl+C para limpiar
+    trap 'gum style --foreground "#AF1B01" --border rounded --align center --bold --padding "0.1 0.1" "🛑 Shutting down..."; kill $tm_pid 2>/dev/null; [ $started_orbstack -eq 1 ] && osascript -e "quit app \"OrbStack\"" >/dev/null 2>&1; exit 0' INT
+
+    # Lanzar TunnelMole en background
+    tunnelmole $port &
+    tm_pid=$!
+
+    wait $tm_pid
+}
+
