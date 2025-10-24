@@ -1,9 +1,3 @@
-# ==== GIT ====
-autoload -Uz vcs_info
-zstyle ':vcs_info:git:*' formats '%b'
-precmd() { vcs_info }
-setopt prompt_subst
-
 # ==== EXPORTS ====
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
@@ -14,10 +8,10 @@ export TERMINAL="alacritty"
 export PATH="/opt/homebrew/opt/unzip/bin:$PATH"
 export PATH="/Users/noriega/Downloads/sonar-scanner-7.0.2.4839-macosx-aarch64/bin:$PATH"
 export PATH="/opt/homebrew/anaconda3/bin/:$PATH"
-export NVM_DIR="$HOME/.nvm"
+export PATH="$HOME/development/flutter/bin:$PATH"
 export MANPAGER="nvim +Man!"
-# export IDF_TOOLS_PATH="$HOME/.espressif"
-# export IDF_HOME="$HOME/Documents/ESP/esp-idf"
+export AIRFLOW_HOME="~/Documents/airflow"
+export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 # ==== ALIASES ====
 alias l="ls"
@@ -26,23 +20,16 @@ alias pp="php bin/console"
 alias n=$EDITOR
 alias nn="$EDITOR ."
 alias zl="zellij"
-# alias esp-init=". $IDF_HOME/install.sh && . $IDF_HOME/export.sh"
+alias tx="tmux"
 
 # ==== FUNCTIONS ====
 for func_file in ~/.config/zshFunctions/*; do
     source $func_file
 done
 
-# ==== LOADINGS ====
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # ==== BREW ====
 autoload -Uz compinit
 compinit
-
-# ==== Starship ====
-eval "$(starship init zsh)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -59,3 +46,20 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+ulimit -n 2048
+
+# ==== Starship ====
+eval "$(starship init zsh)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/noriega/.lmstudio/bin"
+# End of LM Studio CLI section
+
+
+# pnpm
+export PNPM_HOME="/Users/noriega/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
