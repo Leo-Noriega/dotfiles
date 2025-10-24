@@ -1,15 +1,17 @@
 [font]
-size = 20
+size = 14
 
 [font.normal]
 family = "FiraCode Nerd Font"
 
 [window]
 decorations = "buttonless"
-opacity = 0.9
+opacity = 0.98
+
+[selection]
+save_to_clipboard = true
 
 [keyboard]
 bindings = [
 	{ key = "Backspace", mods = "Control", action = "ToggleFullscreen" }
 ]
-
